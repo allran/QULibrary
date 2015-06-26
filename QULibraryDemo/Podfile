@@ -1,0 +1,9 @@
+platform :ios, '7.0'
+pod 'QULibrary'
+pod 'AFNetworking'
+pod 'SVProgressHUD'
+pod 'Masonry'
+pod 'IQKeyboardManager'
+pod 'LKDBHelper',:head
+pod 'MJExtension'
+pod 'MJRefresh'
