@@ -147,8 +147,13 @@
             self.message = @"无数据";
     } else {
         id result = [self.data objectForKey:@"resultStatus"];
-        if (result)
-            self.state = [result boolValue];
+        if (result) {
+            BOOL boolResult = [result boolValue];
+            if (boolResult)
+                self.state = kSuccessNumber;
+            else
+                self.state = kFailNumber;
+        }
     }
 }
 
