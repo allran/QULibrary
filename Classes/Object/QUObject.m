@@ -144,7 +144,11 @@
     if (self.data == nil) {
         self.state = kNoneNumber;
         if (self.message == nil)
-            self.message = @"无正文数据";
+            self.message = @"无数据";
+    } else {
+        id result = [self.data objectForKey:@"resultStatus"];
+        if (result)
+            self.state = [result boolValue];
     }
 }
 

@@ -58,6 +58,7 @@
         
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
+            make.height.equalTo(self.view.height);
         }];
     }
 }

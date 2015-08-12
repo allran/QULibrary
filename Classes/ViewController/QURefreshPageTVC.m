@@ -73,7 +73,11 @@
 
 -(void)doneHeaderRereshing
 {
-    self.tableView.footer.hidden = NO;
+    if (self.tableArr.count>0 || self.tableDic.count>0)
+        self.tableView.footer.hidden = NO;
+    else
+        self.tableView.footer.hidden = YES;
+    
     [super doneHeaderRereshing];
 }
 
@@ -110,7 +114,7 @@
         
     } else {
         if (tablearr.count > 0) {
-            if (temIndex <= kTableReloadDataNumber) {
+            if (self.startId <= kTableReloadDataNumber) {
                 [self.tableArr removeAllObjects];
                 self.tableArr = [tablearr mutableCopy];
             } else

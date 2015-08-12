@@ -26,6 +26,7 @@
 -(void)loadView
 {
     [super loadView];
+    self.view.backgroundColor = COLOR(243, 243, 243);
 }
 
 -(void)viewDidLoad
