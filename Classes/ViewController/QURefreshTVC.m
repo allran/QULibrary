@@ -139,8 +139,10 @@
     else {
         if (tablearr.count > 0)
             [self.tableArr setArray:tablearr];
-        else
+        else {
+            [self.tableArr removeAllObjects];
             self.errMsg = @"暂无数据";
+        }
     }
     [self doneLoadingTableViewData];
 }
