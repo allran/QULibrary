@@ -64,9 +64,11 @@
     for (int i=0; i<20; i++) {
         [arr addObject:[NSString stringWithFormat:@"row-number-%i", i]];
     }
-    RespInfo *info = [[RespInfo alloc] init];
-    info.state = 200;
-    [self reloadWithTableArr:arr totalIndex:90 errInfo:info];
+    [self doneLoadingTableViewData];
+
+//    RespInfo *info = [[RespInfo alloc] init];
+//    info.state = 200;
+//    [self reloadWithTableArr:arr totalIndex:90 errInfo:info];
 }
 -(void)reloadTableViewDataSource
 {

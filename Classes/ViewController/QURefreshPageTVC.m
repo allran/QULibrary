@@ -97,35 +97,35 @@
 }
 
 
-- (void)reloadWithTableArr:(NSArray *)tablearr totalIndex:(int)index  errInfo:(RespInfo*) info
-{
-
-    if (self.startId == kTableFirstDataNumber)
-        self.startId = kTableReloadDataNumber;
-    int temIndex = self.startId;
-    temIndex ++;
-    if (temIndex*UserDefaults().tablePageRow >= index)
-        self.tableView.footer.state = MJRefreshStateNoMoreData;
-    else
-        self.tableView.footer.state = MJRefreshStateIdle;
-    
-    if (!info.state==UserDefaults().successNumber) {
-        self.errMsg = info.message.length>0 ? info.message : @"网络错误";
-        
-    } else {
-        if (tablearr.count > 0) {
-            if (self.startId <= kTableReloadDataNumber) {
-                [self.tableArr removeAllObjects];
-                self.tableArr = [tablearr mutableCopy];
-            } else
-                [self.tableArr addObjectsFromArray:tablearr];
-        } else
-            self.errMsg = @"暂无数据";
-    }
-    [self doneLoadingTableViewData];
-    
-    self.startId = temIndex;
-}
+//- (void)reloadWithTableArr:(NSArray *)tablearr totalIndex:(int)index  errInfo:(RespInfo*) info
+//{
+//
+//    if (self.startId == kTableFirstDataNumber)
+//        self.startId = kTableReloadDataNumber;
+//    int temIndex = self.startId;
+//    temIndex ++;
+//    if (temIndex*UserDefaults().tablePageRow >= index)
+//        self.tableView.footer.state = MJRefreshStateNoMoreData;
+//    else
+//        self.tableView.footer.state = MJRefreshStateIdle;
+//    
+//    if (!info.state==UserDefaults().successNumber) {
+//        self.errMsg = info.message!=nil ? info.message : @"网络错误";
+//        
+//    } else {
+//        if (tablearr.count > 0) {
+//            if (self.startId <= kTableReloadDataNumber) {
+//                [self.tableArr removeAllObjects];
+//                self.tableArr = [tablearr mutableCopy];
+//            } else
+//                [self.tableArr addObjectsFromArray:tablearr];
+//        } else
+//            self.errMsg = @"暂无数据";
+//    }
+//    [self doneLoadingTableViewData];
+//    
+//    self.startId = temIndex;
+//}
 
 
 

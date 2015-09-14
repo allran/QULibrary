@@ -14,6 +14,8 @@
 #import "Masonry.h"
 
 const static float OnePixNumber = 1;
+const static float TenPixNumber = 10;
+
 
 @interface UIView (UIView_AutoSize)
 - (UIView *)newUIView;

@@ -75,13 +75,13 @@ const static int kFailNumber = 500;  //定义的失败返回值
 @end
 
 
-#pragma mark - RespInfo  外层封装数据
-@interface RespInfo : NSObject
-@property (nonatomic,strong) id                 data;         //正文
-@property (nonatomic,strong) NSString*          message;   //错误消息
-@property (nonatomic,assign) int                state;         //非0表示 错误,调试使用
-+(RespInfo *)infoWithError:(NSError *)error;
-+(RespInfo *)infoWithErrorMessage:(NSString *)errMsg;
--(void)loadStatus;
-@end
+//#pragma mark - RespInfo  外层封装数据
+//@interface RespInfo : NSObject
+//@property (nonatomic,strong) id                 data;         //正文
+//@property (nonatomic,strong) id                 message;   //错误消息
+//@property (nonatomic,assign) id                state;         //非0表示 错误,调试使用
+//+(RespInfo *)infoWithError:(NSError *)error;
+//+(RespInfo *)infoWithErrorMessage:(NSString *)errMsg;
+//-(void)loadStatus;
+//@end
 

@@ -38,6 +38,7 @@
 {
     [super viewWillDisappear:animated];
     
+    [SVProgressHUD dismiss];
     if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound)
         [self cancelConnections];
     

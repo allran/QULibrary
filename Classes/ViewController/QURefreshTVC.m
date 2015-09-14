@@ -132,20 +132,20 @@
 }
 
 
-- (void)reloadWithTableArr:(NSArray *)tablearr errInfo:(RespInfo*) info
-{
-    if (!info.state==UserDefaults().successNumber)
-        self.errMsg = info.message.length>0 ? info.message : @"网络错误";
-    else {
-        if (tablearr.count > 0)
-            [self.tableArr setArray:tablearr];
-        else {
-            [self.tableArr removeAllObjects];
-            self.errMsg = @"暂无数据";
-        }
-    }
-    [self doneLoadingTableViewData];
-}
+//- (void)reloadWithTableArr:(NSArray *)tablearr errInfo:(RespInfo*) info
+//{
+//    if (!info.state==UserDefaults().successNumber)
+//        self.errMsg = info.message!=nil ? info.message : @"网络错误";
+//    else {
+//        if (tablearr.count > 0)
+//            [self.tableArr setArray:tablearr];
+//        else {
+//            [self.tableArr removeAllObjects];
+//            self.errMsg = @"暂无数据";
+//        }
+//    }
+//    [self doneLoadingTableViewData];
+//}
 
 
 

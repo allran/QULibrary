@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/allran/QULibrary.git", :tag => "0.0.4" }
+  s.source       = { :git => "https://github.com/allran/QULibrary.git", :tag => "0.0.5" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -132,12 +132,13 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  s.dependency "Masonry", "~> 0.6.1"
-  s.dependency "AFNetworking", "~> 2.5.4"
-  s.dependency "SVProgressHUD", "~> 1.1.3"
-  s.dependency "IQKeyboardManager", "~> 3.2.4"
-  s.dependency "LKDBHelper", "~> 2.1.3"
-  s.dependency "MJExtension", "~> 2.3.6"
-  s.dependency "MJRefresh", "~> 2.0.4"
+  s.dependency "Masonry"
+  s.dependency "AFNetworking"
+  s.dependency "SVProgressHUD"
+  s.dependency "IQKeyboardManager"
+  s.dependency "LKDBHelper"
+  s.dependency "MJExtension"
+  s.dependency "MJRefresh"
+
 
 end

@@ -47,5 +47,5 @@
  *  @param tablearr 传入的列表对象数组
  *  @param info     错误信息
  */
-- (void)reloadWithTableArr:(NSArray *)tablearr errInfo:(RespInfo*) info;
+//- (void)reloadWithTableArr:(NSArray *)tablearr errInfo:(RespInfo*) info;
 @end

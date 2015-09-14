@@ -114,47 +114,49 @@
 
 
 
-#pragma mark -
-#pragma mark RespInfo
-@implementation RespInfo
-
-+ (void)initialize
-{
-    [super initialize];
-    //[self bindYYJSONKey:@"response" toProperty:@"state"];
-}
-+(RespInfo *)infoWithError:(NSError *)error
-{
-    RespInfo *info = [[RespInfo alloc] init];
-    info.state           = kFailNumber;
-    info.message       = @"网络请示失败，请检查网络";
-    return info;
-}
-
-+(RespInfo *)infoWithErrorMessage:(NSString *)errMsg
-{
-    RespInfo *info = [[RespInfo alloc] init];
-    info.state           = kFailNumber;
-    info.message       = errMsg;
-    return info;
-}
-
--(void)loadStatus
-{
-    if (self.data == nil) {
-        self.state = kNoneNumber;
-        if (self.message == nil)
-            self.message = @"无数据";
-    } else {
-        id result = [self.data objectForKey:@"resultStatus"];
-        if (result) {
-            BOOL boolResult = [result boolValue];
-            if (boolResult)
-                self.state = kSuccessNumber;
-            else
-                self.state = kFailNumber;
-        }
-    }
-}
-
-@end
+//#pragma mark -
+//#pragma mark RespInfo
+//@implementation RespInfo
+//
+//+ (void)initialize
+//{
+//    [super initialize];
+//    //[self bindYYJSONKey:@"response" toProperty:@"state"];
+//}
+//+(RespInfo *)infoWithError:(NSError *)error
+//{
+//    RespInfo *info = [[RespInfo alloc] init];
+//    info.message       = @"网络请示失败，请检查网络";
+//    return info;
+//}
+//
+//+(RespInfo *)infoWithErrorMessage:(NSString *)errMsg
+//{
+//    RespInfo *info = [[RespInfo alloc] init];
+//    info.message       = errMsg;
+//    return info;
+//}
+//
+//-(void)loadStatus
+//{
+//
+////    if (self.data == nil) {
+////        if (self.state != UserDefaults().successNumber)
+////            self.state = kNoneNumber;
+////        if (self.message == nil)
+////            self.message = @"无数据";
+////    } else {
+////        if ([self.data isKindOfClass:[NSDictionary class]]) {
+////            id result = [self.data objectForKey:@"resultStatus"];
+////            if (result) {
+////                BOOL boolResult = [result boolValue];
+////                if (boolResult)
+////                    self.state = kSuccessNumber;
+////                else
+////                    self.state = kFailNumber;
+////            }
+////        }
+////    }
+//}
+//
+//@end

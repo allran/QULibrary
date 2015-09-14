@@ -31,6 +31,6 @@
  *  @param totalpage 总页面
  *  @param info      错误信息
  */
-- (void)reloadWithTableArr:(NSArray *)tablearr totalIndex:(int)index  errInfo:(RespInfo*) info;
+//- (void)reloadWithTableArr:(NSArray *)tablearr totalIndex:(int)index  errInfo:(RespInfo*) info;
 
 @end

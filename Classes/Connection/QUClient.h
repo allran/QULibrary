@@ -18,16 +18,16 @@ typedef enum : int {
 } kURLLinkType;  //
 
 
-typedef void (^SuccessBlock)(BOOL success, NSString* errStr);
-typedef void (^StatusBlock)(BOOL status, RespInfo *info);
-typedef void (^ObjectBlock)(id obj, RespInfo *info);
-typedef void (^TableBlock)(int totalCount, NSArray *tableArr, RespInfo* info);
+//typedef void (^SuccessBlock)(BOOL success, NSString* errStr);
+//typedef void (^StatusBlock)(BOOL status, RespInfo *info);
+//typedef void (^ObjectBlock)(id obj, RespInfo *info);
+//typedef void (^TableBlock)(int totalCount, NSArray *tableArr, RespInfo* info);
 
 
 
-@interface NSMutableDictionary (APIClient_Additions)
--(void)addTableParamWithIndex:(int)index;
-@end
+//@interface NSMutableDictionary (APIClient_Additions)
+//-(void)addTableParamWithIndex:(int)index;
+//@end
 
 
 @interface QUClient : AFHTTPRequestOperationManager
@@ -44,6 +44,7 @@ typedef void (^TableBlock)(int totalCount, NSArray *tableArr, RespInfo* info);
 - (void)removeConnections:(NSString *)key;
 
 
+
 /**
  *  链接总方法
  *
@@ -53,7 +54,8 @@ typedef void (^TableBlock)(int totalCount, NSArray *tableArr, RespInfo* info);
  *  @param parameters 参数
  *  @param callback   返回网络数据
  */
--(void)urlType:(kURLLinkType)type group:(NSString *)key path:(NSString *)URLString parameters:(id)parameters call:(void (^)(id obj, RespInfo* info))callback;
+-(void)urlType:(kURLLinkType)type groupKey:(NSString *)key path:(NSString *)URLString parameters:(id)parameters call:(void (^)(NSError *error, id responseObject))callback;
+-(void)urlType:(kURLLinkType)type group:(NSObject *)tag path:(NSString *)URLString parameters:(id)parameters call:(void (^)(NSError *error, id responseObject))callback;
 
 
 /**
@@ -65,60 +67,60 @@ typedef void (^TableBlock)(int totalCount, NSArray *tableArr, RespInfo* info);
  *  @param block      上传数据
  *  @param callback   返回网络数据
  */
--(void)postWithGroup:(NSString *)key path:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block call:(void (^)(id obj, RespInfo* info))callback;
+-(void)postWithGroup:(NSString *)key path:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlockBack:(void (^)(id <AFMultipartFormData> formData))block call:(void (^)(NSError *error, id responseObject))callback;
 
 
-/**
- *  Get链接总方法
- *
- *  @param key        网络链接所属于的组
- *  @param URLString  请求链接
- *  @param parameters 参数
- *  @param callback   返回网络数据
- */
--(void)getWithGroup:(NSString *)key path:(NSString *)URLString parameters:(id)parameters  call:(void (^)(id obj, RespInfo* info))callback;
-
-
-/**
- *  Post链接总方法
- *
- *  @param key        网络链接所属于的组
- *  @param URLString  请求链接
- *  @param parameters 参数
- *  @param callback   返回网络数据
- */
--(void)postWithGroup:(NSString *)key path:(NSString *)URLString parameters:(id)parameters call:(void (^)(id obj, RespInfo* info))callback;
-
-
-/**
- *  多页表格链接方法
- *
- *  @param key        网络链接所属于的组
- *  @param URLString  请求链接
- *  @param parameters 参数
- *  @param index      页码数
- *  @param aClass     返回数据解析对象
- *  @param callback   返回表格数据
- */
--(void)tableListGroup:(NSString *)key path:(NSString *)URLString parameters:(NSMutableDictionary *)parameters index:(int)index subClass:(Class)aClass call:(TableBlock)callback;
-
-
-/**
- *  单页表格链接方法
- *
- *  @param key        网络链接所属于的组
- *  @param URLString  请求链接
- *  @param parameters 参数
- *  @param aClass     返回数据解析对象
- *  @param callback   返回表格数据
- */
--(void)tableListGroup:(NSString *)key path:(NSString *)URLString parameters:(NSMutableDictionary *)parameters subClass:(Class)aClass call:(TableBlock)callback;
-
-
-
--(void)encodeWithObj:(id)responseObject call:( void(^)(id obj, RespInfo* info))callback;
--(void)encodeWithObj:(id)obj info:(RespInfo *)info  statusCall:(StatusBlock)callback;
--(void)encodeWithObj:(id)obj info:(RespInfo *)info jsonTotalCountKey:(NSString *)countKey jsonListKey:(NSString *)listKey subClass:(Class)aClass tableCall:(TableBlock)callback;
+///**
+// *  Get链接总方法
+// *
+// *  @param key        网络链接所属于的组
+// *  @param URLString  请求链接
+// *  @param parameters 参数
+// *  @param callback   返回网络数据
+// */
+//-(void)getWithGroup:(NSString *)key path:(NSString *)URLString parameters:(id)parameters  call:(void (^)(RespInfo* info))callback;
+//
+//
+///**
+// *  Post链接总方法
+// *
+// *  @param key        网络链接所属于的组
+// *  @param URLString  请求链接
+// *  @param parameters 参数
+// *  @param callback   返回网络数据
+// */
+//-(void)postWithGroup:(NSString *)key path:(NSString *)URLString parameters:(id)parameters call:(void (^)(RespInfo* info))callback;
+//
+//
+///**
+// *  多页表格链接方法
+// *
+// *  @param key        网络链接所属于的组
+// *  @param URLString  请求链接
+// *  @param parameters 参数
+// *  @param index      页码数
+// *  @param aClass     返回数据解析对象
+// *  @param callback   返回表格数据
+// */
+//-(void)tableListGroup:(NSString *)key path:(NSString *)URLString parameters:(NSMutableDictionary *)parameters index:(int)index subClass:(Class)aClass call:(TableBlock)callback;
+//
+//
+///**
+// *  单页表格链接方法
+// *
+// *  @param key        网络链接所属于的组
+// *  @param URLString  请求链接
+// *  @param parameters 参数
+// *  @param aClass     返回数据解析对象
+// *  @param callback   返回表格数据
+// */
+//-(void)tableListGroup:(NSString *)key path:(NSString *)URLString parameters:(NSMutableDictionary *)parameters subClass:(Class)aClass call:(TableBlock)callback;
+//
+//
+//
+//-(void)encodeWithObj:(id)responseObject call:( void(^)(RespInfo* info))callback;
+//-(void)encodeWithObj:(id)obj info:(RespInfo *)info  statusCall:(StatusBlock)callback;
+//-(void)encodeWithObj:(id)obj info:(RespInfo *)info jsonTotalCountKey:(NSString *)countKey jsonListKey:(NSString *)listKey subClass:(Class)aClass tableCall:(TableBlock)callback;
 
 
 @end

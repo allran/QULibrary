@@ -43,11 +43,7 @@
     if (isCancel)
         [self cancelConnections];
     
-    if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
-        [self presentViewController:viewControllerToPresent animated:animated completion:^{}];
-    } else {
-        [self presentModalViewController:viewControllerToPresent animated:animated];
-    }
+    [self presentViewController:viewControllerToPresent animated:animated completion:^{}];
 }
 
 

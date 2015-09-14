@@ -110,7 +110,7 @@
     return btn;
 }
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel title:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font bgImgNormal:(UIImage *)bgImageNameNormal{
-    UIButton *btn = [self newUIButtonWithTarget:target mehotd:sel title:title titleColor:titleColor];
+    UIButton *btn = [self newUIButtonWithTarget:target mehotd:sel title:title titleColor:titleColor titleFont:font];
     if (bgImageNameNormal != nil)
         [btn setBackgroundImage:bgImageNameNormal forState:UIControlStateNormal];
     return btn;
