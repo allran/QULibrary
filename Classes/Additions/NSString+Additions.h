@@ -8,11 +8,13 @@
 #import <UIKit/UIKit.h>
 @interface NSString (aaAdditions)
 
-+ (NSString*)base64encode:(NSString*)str;
+NS_ASSUME_NONNULL_BEGIN
++ (NSString *)base64encode:(NSString *)str;
 + (NSString *)md5:(NSString *)str;
 
 
 + (BOOL)isMobileNumber:(NSString *)mobileNum;//检测是否是手机号码
++ (BOOL)isNomalMobileNumber:(NSString *)mobileNum;
 
 //- (CGFloat)heightForTextWidth:(float)width;
 - (NSString *)dateStringWithLongFormat:(BOOL)flag;
@@ -24,4 +26,18 @@
 
 
 +(NSString *)LastLognDateWithStr:(NSString *)dateStr;
+
+- (NSString *)URLEncodedString;
+NS_ASSUME_NONNULL_END
+
+@end
+
+
+
+
+
+@interface NSTimeZone (QUTimeZoneCreation)
+
++ (nullable instancetype)timeZoneWithChinaSimple;
+
 @end

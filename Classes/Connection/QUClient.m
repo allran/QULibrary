@@ -51,10 +51,10 @@
     if (self) {
         //self.requestSerializer = [AFJSONRequestSerializer serializer];
         //self.responseSerializer = [AFJSONResponseSerializer serializer];
-        self.requestSerializer.HTTPShouldHandleCookies = YES;
+        //self.requestSerializer.HTTPShouldHandleCookies = YES;
         self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
         //self.requestSerializer = [AFHTTPRequestSerializer serializer];
-        self.responseSerializer = [AFHTTPResponseSerializer serializer];
+        //self.responseSerializer = [AFHTTPResponseSerializer serializer];
         self.conDic = [NSMutableDictionary dictionary];
     }
     return self;

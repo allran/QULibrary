@@ -33,11 +33,14 @@
 {
     [super viewDidLoad];
     
-    
-    NSURL *url = [NSURL URLWithString:_linkUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.shareWebView loadRequest:request];
-
+    if (_linkUrl.length > 0) {
+        NSURL *url = [NSURL URLWithString:_linkUrl];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.shareWebView loadRequest:request];
+        
+    } else if (_htmlString.length > 0) {
+        [self.shareWebView loadHTMLString:_htmlString baseURL:[NSURL URLWithString:_htmlBaseURL]];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated

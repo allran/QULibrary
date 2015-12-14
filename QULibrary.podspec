@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "QULibrary"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "A short description of QULibrary."
 
   s.description  = <<-DESC
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -138,7 +138,8 @@ Pod::Spec.new do |s|
   s.dependency "IQKeyboardManager"
   s.dependency "LKDBHelper"
   s.dependency "MJExtension"
-  s.dependency "MJRefresh"
+  s.dependency "MJRefresh", "~> 2.5.0"
+  s.dependency "UIAlertView-Blocks"
 
 
 end

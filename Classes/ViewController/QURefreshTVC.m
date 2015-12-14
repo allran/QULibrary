@@ -17,6 +17,7 @@
     self = [super init];
     if (self) {
         self.startId = kTableAllDataNumber;
+        self.beginHeaderRereshingWhenViewWillAppear = YES;
     }
     return self;
 }
@@ -46,7 +47,7 @@
     if (tableSeparatorStyle != self.tableView.separatorStyle)
         tableSeparatorStyle = self.tableView.separatorStyle;
     
-    if (self.tableArr.count == 0)
+    if (self.tableArr.count == 0 && _beginHeaderRereshingWhenViewWillAppear==YES)
         [self performSelector:@selector(beginHeaderRereshing) withObject:nil afterDelay:0.1];
 }
 

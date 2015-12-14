@@ -8,6 +8,7 @@
 
 #import "NSString+Additions.h"
 #import <CommonCrypto/CommonDigest.h>
+#import <CoreFoundation/CoreFoundation.h>
 
 #define Time_mm  60
 #define Time_HH  (60*60)
@@ -121,6 +122,13 @@ size_t count(Type_) { return BOOST_PP_SEQ_SIZE(Values_); }
     }
 }
 
++ (BOOL)isNomalMobileNumber:(NSString *)mobileNum
+{
+    NSString * MOBILE = @"^((13[0-9]{1})|130|131|132|133|134|135|136|137|138|139|141|142|143|144|145|146|147|148|149|150|151|152|153|155|156|157|158|159|177|180|181|182|183|184|185|186|187|188|189)+\\d{8}$";
+    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
+    return [regextestmobile evaluateWithObject:mobileNum];
+}
+
 
 - (NSString *)dateStringWithLongFormat:(BOOL)flag {
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -232,6 +240,26 @@ size_t count(Type_) { return BOOST_PP_SEQ_SIZE(Values_); }
     return title;
 }
 
+- (NSString *)URLEncodedString
+{
+    NSString *encodedString = (NSString *)
+    CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                            (CFStringRef)self,
+                                            (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]",
+                                            NULL,
+                                            kCFStringEncodingUTF8));
+    return encodedString;
+}
 
+@end
+
+
+
+
+@implementation NSTimeZone (QUTimeZoneCreation)
++ (nullable instancetype)timeZoneWithChinaSimple
+{
+    return [NSTimeZone timeZoneWithName:@"GMT"];
+}
 
 @end

@@ -1,5 +1,6 @@
 platform :ios, '7.0'
-pod 'QULibrary'
+pod 'QULibrary', :path => '/Users/allran/Desktop/apple/APP/Allran/QULibrary'
+
 pod 'AFNetworking'
 pod 'SVProgressHUD'
 pod 'Masonry'

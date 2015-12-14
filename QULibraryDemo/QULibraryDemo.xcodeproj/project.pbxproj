@@ -12,6 +12,7 @@
 		DF547A181B8F5F2D00BA1005 /* QUScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF547A171B8F5F2D00BA1005 /* QUScrollVC.m */; };
 		DF547A2A1B8F62D800BA1005 /* UINavigationController+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = DF547A291B8F62D800BA1005 /* UINavigationController+Custom.m */; };
 		DF5C6BE61B8E052200F7FA7E /* QUTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5C6BE51B8E052200F7FA7E /* QUTextField.m */; };
+		DF5CA1081BF02EF400D4466C /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5CA1071BF02EF400D4466C /* NSDate+Utilities.m */; };
 		DF6A77811B3A839C00BAF10B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6A77801B3A839C00BAF10B /* main.m */; };
 		DF6A77841B3A839C00BAF10B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6A77831B3A839C00BAF10B /* AppDelegate.m */; };
 		DF6A77871B3A839C00BAF10B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6A77861B3A839C00BAF10B /* ViewController.m */; };
@@ -34,6 +35,8 @@
 		DFA4F6CC1B3B9D4800AD318F /* UIViewController+Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA4F6CB1B3B9D4800AD318F /* UIViewController+Connection.m */; };
 		DFA4F6CF1B3BA61D00AD318F /* RefreshTVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA4F6CE1B3BA61D00AD318F /* RefreshTVCTest.m */; };
 		DFA4F6D21B3BA85C00AD318F /* TableRefreshPageTVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA4F6D11B3BA85C00AD318F /* TableRefreshPageTVCTest.m */; };
+		DFB987AA1BAFB32D00602551 /* UIImage+Additons.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB987A91BAFB32D00602551 /* UIImage+Additons.m */; };
+		DFF198D11BB3ED6100578669 /* UIViewController+UIImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF198D01BB3ED6100578669 /* UIViewController+UIImagePicker.m */; };
 		DFFAD9ED1B97337B00D5E461 /* QUWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DFFAD9EC1B97337B00D5E461 /* QUWebVC.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +62,8 @@
 		DF547A291B8F62D800BA1005 /* UINavigationController+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Custom.m"; sourceTree = "<group>"; };
 		DF5C6BE41B8E052200F7FA7E /* QUTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUTextField.h; sourceTree = "<group>"; };
 		DF5C6BE51B8E052200F7FA7E /* QUTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUTextField.m; sourceTree = "<group>"; };
+		DF5CA1061BF02EF400D4466C /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		DF5CA1071BF02EF400D4466C /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		DF6A777B1B3A839C00BAF10B /* QULibraryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QULibraryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF6A777F1B3A839C00BAF10B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF6A77801B3A839C00BAF10B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -103,6 +108,10 @@
 		DFA4F6CE1B3BA61D00AD318F /* RefreshTVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTVCTest.m; sourceTree = "<group>"; };
 		DFA4F6D01B3BA85C00AD318F /* TableRefreshPageTVCTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableRefreshPageTVCTest.h; sourceTree = "<group>"; };
 		DFA4F6D11B3BA85C00AD318F /* TableRefreshPageTVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableRefreshPageTVCTest.m; sourceTree = "<group>"; };
+		DFB987A81BAFB32D00602551 /* UIImage+Additons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additons.h"; sourceTree = "<group>"; };
+		DFB987A91BAFB32D00602551 /* UIImage+Additons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additons.m"; sourceTree = "<group>"; };
+		DFF198CF1BB3ED6100578669 /* UIViewController+UIImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UIImagePicker.h"; sourceTree = "<group>"; };
+		DFF198D01BB3ED6100578669 /* UIViewController+UIImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UIImagePicker.m"; sourceTree = "<group>"; };
 		DFFAD9EB1B97337B00D5E461 /* QUWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUWebVC.h; sourceTree = "<group>"; };
 		DFFAD9EC1B97337B00D5E461 /* QUWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUWebVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +247,8 @@
 		DF6A77DC1B3A91A500BAF10B /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				DF5CA1061BF02EF400D4466C /* NSDate+Utilities.h */,
+				DF5CA1071BF02EF400D4466C /* NSDate+Utilities.m */,
 				DF6A77DD1B3A91A500BAF10B /* UIView+AutoSize.h */,
 				DF6A77DE1B3A91A500BAF10B /* UIView+AutoSize.m */,
 				DF6A782C1B3AA56B00BAF10B /* UIViewController+Additions.h */,
@@ -252,6 +263,10 @@
 				DFA4F6CB1B3B9D4800AD318F /* UIViewController+Connection.m */,
 				DF547A281B8F62D800BA1005 /* UINavigationController+Custom.h */,
 				DF547A291B8F62D800BA1005 /* UINavigationController+Custom.m */,
+				DFB987A81BAFB32D00602551 /* UIImage+Additons.h */,
+				DFB987A91BAFB32D00602551 /* UIImage+Additons.m */,
+				DFF198CF1BB3ED6100578669 /* UIViewController+UIImagePicker.h */,
+				DFF198D01BB3ED6100578669 /* UIViewController+UIImagePicker.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -452,10 +467,12 @@
 				DF6A78241B3AA01300BAF10B /* UIColor_Additions.m in Sources */,
 				DF547A181B8F5F2D00BA1005 /* QUScrollVC.m in Sources */,
 				DF6A782A1B3AA06B00BAF10B /* NSString+Additions.m in Sources */,
+				DF5CA1081BF02EF400D4466C /* NSDate+Utilities.m in Sources */,
 				DF6A77E81B3A921C00BAF10B /* NSUserDefaults+Additons.m in Sources */,
 				DF547A2A1B8F62D800BA1005 /* UINavigationController+Custom.m in Sources */,
 				DFA4F6D21B3BA85C00AD318F /* TableRefreshPageTVCTest.m in Sources */,
 				DFA4F6C81B3B99F600AD318F /* QURefreshPageTVC.m in Sources */,
+				DFF198D11BB3ED6100578669 /* UIViewController+UIImagePicker.m in Sources */,
 				DFFAD9ED1B97337B00D5E461 /* QUWebVC.m in Sources */,
 				DFA4F6C31B3B991F00AD318F /* QUTVC.m in Sources */,
 				DF6A782E1B3AA56B00BAF10B /* UIViewController+Additions.m in Sources */,
@@ -468,6 +485,7 @@
 				DF6A77841B3A839C00BAF10B /* AppDelegate.m in Sources */,
 				DFA4F6C91B3B99F600AD318F /* QURefreshTVC.m in Sources */,
 				DF6A77811B3A839C00BAF10B /* main.m in Sources */,
+				DFB987AA1BAFB32D00602551 /* UIImage+Additons.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +565,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -597,6 +615,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = QULibraryDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};

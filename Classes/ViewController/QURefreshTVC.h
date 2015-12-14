@@ -13,7 +13,9 @@
 @interface QURefreshTVC : QUTVC {
 
 }
-@property(nonatomic,assign) int				 startId;
+@property(nonatomic,assign) BOOL                beginHeaderRereshingWhenViewWillAppear;
+
+@property(nonatomic,assign) int                 startId;
 
 /**
  *  代码调用开始下拉刷新（有上拉或者下拉时调用）

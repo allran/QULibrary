@@ -67,6 +67,7 @@
 
 - (UIImageView *)newUIImageView {
     UIImageView *view = UIImageView.new;
+    //view.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:view];
     return view;
 }
@@ -137,6 +138,12 @@
     UIButton *btn = [self newUIButtonWithTarget:target mehotd:sel];
     if (bgImageNameNormal != nil)
         [btn setBackgroundImage:bgImageNameNormal forState:UIControlStateNormal];
+    return btn;
+}
+- (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel bgImgNormal:(UIImage *)bgImageNameNormal bgImgHighlighted:(UIImage *)bgImageNameHighlighted {
+    UIButton *btn = [self newUIButtonWithTarget:target mehotd:sel bgImgNormal:bgImageNameNormal];
+    if (bgImageNameHighlighted != nil)
+        [btn setBackgroundImage:bgImageNameHighlighted forState:UIControlStateHighlighted];
     return btn;
 }
 

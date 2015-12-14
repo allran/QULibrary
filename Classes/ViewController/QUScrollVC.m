@@ -23,7 +23,7 @@
         self.scrollView.backgroundColor = [UIColor clearColor];
         self.scrollView.translatesAutoresizingMaskIntoConstraints  = NO;
         
-        [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.scrollView makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
             make.width.equalTo(self.view.width);
         }];

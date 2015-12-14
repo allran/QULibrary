@@ -42,6 +42,7 @@ const static float TenPixNumber = 10;
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel title:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font titleEdgeInsets:(UIEdgeInsets)titleEdge imgNormal:(UIImage *)imageNameNormal imageEdgeInsets:(UIEdgeInsets)imgeEdge;
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel imgNormal:(UIImage *)imageNameNormal;
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel bgImgNormal:(UIImage *)bgImageNameNormal;
+- (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel bgImgNormal:(UIImage *)bgImageNameNormal bgImgHighlighted:(UIImage *)bgImageNameHighlighted;
 
 - (UITextField *)newUITextField;
 - (UITextField *)newUITextFieldWithPlaceholder:(NSString *)placeholder;
