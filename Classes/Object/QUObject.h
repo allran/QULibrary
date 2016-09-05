@@ -10,6 +10,7 @@
 #import <LKDBHelper/LKDBHelper.h>
 #import <MJExtension/MJExtension.h>
 #import "NSUserDefaults+Additons.h"
+#import "QUCustomDefine.h"
 
 //列表没有分页取全部数据时，page=-1,
 //第一次加载时page=0,
@@ -25,10 +26,15 @@ const static int kFailNumber = 500;  //定义的失败返回值
 
 
 #pragma mark - NSDictionary
-@interface NSDictionary (BVJSONString)
+@interface NSDictionary (QUAdditions)
 -(id)objectWithKey:(NSString *)key; //返回有效值
 @end
 
+@interface NSMutableDictionary (QUAdditions)
+- (void)setNeedStr:(NSString *)anObject forKey:(id)aKey;  //设置必须有的值
+- (void)setValidStr:(NSString *)anObject forKey:(id)aKey;  //当值不为空时，设置该值
+- (void)setInt:(int)anObject forKey:(id)aKey;
+@end
 
 
 

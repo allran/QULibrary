@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "QULibrary"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "A short description of QULibrary."
 
   s.description  = <<-DESC
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/allran/QULibrary.git", :tag => "0.0.5" }
+  s.source       = { :git => "https://github.com/allran/QULibrary.git", :tag => "0.0.6" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -138,7 +138,7 @@ Pod::Spec.new do |s|
   s.dependency "IQKeyboardManager"
   s.dependency "LKDBHelper"
   s.dependency "MJExtension"
-  s.dependency "MJRefresh", "~> 2.5.0"
+  s.dependency "MJRefresh"
   s.dependency "UIAlertView-Blocks"
 
 

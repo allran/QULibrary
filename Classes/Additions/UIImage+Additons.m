@@ -126,7 +126,7 @@
     NSUInteger lengthTag = maxFileSize*1000;
     NSUInteger lengthOffset = 20*1000;
     
-    NSLog(@"Length: %lu New: %lu lengthTag: %lu  lengthOffset: %lu", length, lengthNew, lengthTag, lengthOffset);
+    //NSLog(@"Length: %lu New: %lu lengthTag: %lu  lengthOffset: %lu", length, lengthNew, lengthTag, lengthOffset);
     //
     while (lengthNew > lengthTag && (length-lengthNew)<lengthOffset) { //当源图片大于指定大小，并且两次裁切差大于20kb 时
         length = lengthNew;
@@ -134,10 +134,10 @@
         imageData = UIImageJPEGRepresentation(image, compression);
         lengthNew = imageData.length;
         
-        NSLog(@"WhileLength: %lu  New:%lu  compression:%.2f", (unsigned long)length, (unsigned long)lengthNew, compression);
+        //NSLog(@"WhileLength: %lu  New:%lu  compression:%.2f", (unsigned long)length, (unsigned long)lengthNew, compression);
     }
-    NSLog(@"Length: %lu New: %lu lengthTag: %lu  lengthOffset: %lu", length, lengthNew, lengthTag, lengthOffset);
-    NSLog(@"Length: %lu", (unsigned long)imageData.length);
+    //NSLog(@"Length: %lu New: %lu lengthTag: %lu  lengthOffset: %lu", length, lengthNew, lengthTag, lengthOffset);
+    //NSLog(@"Length: %lu", (unsigned long)imageData.length);
     return imageData;
 }
 

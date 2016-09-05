@@ -26,9 +26,9 @@
 
 #pragma mark -
 @interface QUClient ()
-- (void)cancelHttpOpretion:(AFHTTPRequestOperation *)http;
-- (void)addConnection:(AFHTTPRequestOperation *)operation group:(NSString *)key;
-- (void)removeConnection:(AFHTTPRequestOperation *)operation group:(NSString *)key;
+- (void)cancelHttpOpretion:(NSURLSessionDataTask *)http;
+- (void)addConnection:(NSURLSessionDataTask *)operation group:(NSString *)key;
+- (void)removeConnection:(NSURLSessionDataTask *)operation group:(NSString *)key;
 
 @end
 
@@ -42,6 +42,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedClient = [[QUClient alloc] initWithBaseURL:[NSURL URLWithString:UserDefaults().apiBaseURL]];
+        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     });
     return _sharedClient;
 }
@@ -61,10 +62,10 @@
 }
 
 #pragma mark -
-- (void)cancelHttpOpretion:(AFHTTPRequestOperation *)http
+- (void)cancelHttpOpretion:(NSURLSessionDataTask *)http
 {
     for (NSOperation *operation in [self.operationQueue operations]) {
-        if (![operation isKindOfClass:[AFHTTPRequestOperation class]]) {
+        if (![operation isKindOfClass:[NSURLSessionDataTask class]]) {
             continue;
         }
         if ([operation isEqual:http]) {
@@ -74,7 +75,7 @@
     }
 }
 
-- (void)addConnection:(AFHTTPRequestOperation *)operation group:(NSString *)key
+- (void)addConnection:(NSURLSessionDataTask *)operation group:(NSString *)key
 {
     NSMutableArray *arr = [self.conDic objectForKey:key];
     if (arr == nil)
@@ -87,7 +88,7 @@
     [self.conDic setObject:arr forKey:key];
 }
 
-- (void)removeConnection:(AFHTTPRequestOperation *)operation group:(NSString *)key
+- (void)removeConnection:(NSURLSessionDataTask *)operation group:(NSString *)key
 {
     NSMutableArray *arr = [self.conDic objectForKey:key];
     if ([arr containsObject:operation]) {
@@ -100,7 +101,7 @@
 {
     NSMutableArray *arr = [self.conDic objectForKey:key];
     if (arr != nil) {
-        for (AFHTTPRequestOperation *operation in arr)
+        for (NSURLSessionDataTask *operation in arr)
             [self cancelHttpOpretion:operation];
         [self.conDic removeObjectForKey:key];
     }
@@ -113,20 +114,34 @@
 {
     id operation = nil;
     if (type == kURLLink_GET) {
-        operation = [self GET:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //        operation = [self GET:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //            callback(nil, responseObject);
+        //            [self removeConnection:operation group:key];
+        //        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //            [self removeConnection:operation group:key];
+        //            callback(error, nil);
+        //        }];
+        operation = [self GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             callback(nil, responseObject);
             [self removeConnection:operation group:key];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [self removeConnection:operation group:key];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             callback(error, nil);
+            [self removeConnection:operation group:key];
         }];
     } else if (type == kURLLink_POST) {
-        operation = [self POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //        operation = [self POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //            callback(nil, responseObject);
+        //            [self removeConnection:operation group:key];
+        //        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //            [self removeConnection:operation group:key];
+        //            callback(error, nil);
+        //        }];
+        operation = [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             callback(nil, responseObject);
             [self removeConnection:operation group:key];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [self removeConnection:operation group:key];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             callback(error, nil);
+            [self removeConnection:operation group:key];
         }];
     }
     [self addConnection:operation group:key];
@@ -144,13 +159,20 @@
 
 -(void)postWithGroup:(NSString *)key path:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlockBack:(void (^)(id <AFMultipartFormData> formData))block call:(void (^)(NSError *error, id responseObject))callback
 {
+//[self POST:URLString parameters:parameters constructingBodyWithBlock:block success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        callback(nil, responseObject);
+//        [self removeConnection:operation group:key];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        [self removeConnection:operation group:key];
+//        callback(error, nil);
+//    }];
     id operation = nil;
-    operation = [self POST:URLString parameters:parameters constructingBodyWithBlock:block success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    operation = [self POST:URLString parameters:parameters constructingBodyWithBlock:block progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         callback(nil, responseObject);
         [self removeConnection:operation group:key];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self removeConnection:operation group:key];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         callback(error, nil);
+        [self removeConnection:operation group:key];
     }];
     [self addConnection:operation group:key];
 }

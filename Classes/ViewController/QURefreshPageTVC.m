@@ -42,9 +42,9 @@
     }];
     footer.automaticallyRefresh = NO;  // 禁止自动加载
     footer.refreshingTitleHidden = YES;
-    self.tableView.footer = footer;
+    self.tableView.mj_footer = footer;
     
-    self.tableView.footer.hidden = YES;
+    self.tableView.mj_footer.hidden = YES;
 }
 
  
@@ -59,7 +59,7 @@
 
 -(void)loadHeaderRefreshing
 {
-    self.tableView.footer.hidden = YES;
+    self.tableView.mj_footer.hidden = YES;
     if (self.startId != kTableFirstDataNumber)
         self.startId = kTableReloadDataNumber;
     [super loadHeaderRefreshing];
@@ -74,9 +74,9 @@
 -(void)doneHeaderRereshing
 {
     if (self.tableArr.count>0 || self.tableDic.count>0)
-        self.tableView.footer.hidden = NO;
+        self.tableView.mj_footer.hidden = NO;
     else
-        self.tableView.footer.hidden = YES;
+        self.tableView.mj_footer.hidden = YES;
     
     [super doneHeaderRereshing];
 }
@@ -85,7 +85,7 @@
 {
     self.tableIsReloading = NO;
     [self.tableView reloadData];
-    [self.tableView.footer endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 - (void)doneLoadingTableViewData

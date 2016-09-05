@@ -32,7 +32,11 @@
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf loadHeaderRefreshing];
     }];
-    self.tableView.header = header;
+    self.tableView.mj_header = header;
+    
+    [header setTitle:@"" forState:MJRefreshStateIdle];
+    [header setTitle:@"" forState:MJRefreshStatePulling];
+    [header setTitle:@"" forState:MJRefreshStateRefreshing];
 }
 
 - (void)viewDidLoad
@@ -93,7 +97,7 @@
 
 -(void)beginHeaderRereshing
 {
-    [self.tableView.header beginRefreshing];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)loadHeaderRefreshing
@@ -124,7 +128,7 @@
     
     [self.tableView reloadData];
     
-    [self.tableView.header endRefreshing]; // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+    [self.tableView.mj_header endRefreshing]; // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
 }
 
 - (void)doneLoadingTableViewData

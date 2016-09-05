@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import <AFNetworking/AFNetworking.h>
 #import "QUObject.h"
 #import "QUCustomDefine.h"
 
@@ -30,7 +30,7 @@ typedef enum : int {
 //@end
 
 
-@interface QUClient : AFHTTPRequestOperationManager
+@interface QUClient : AFHTTPSessionManager
 @property(nonatomic, strong) NSMutableDictionary *conDic;//存网络链接，便于取消
 
 + (instancetype)sharedClient;

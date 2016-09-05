@@ -9,10 +9,9 @@
 #import "QUObject.h"
 
 
-
 #pragma mark -
 #pragma mark NSDictionary
-@implementation NSDictionary (Additions)
+@implementation NSDictionary (QUAdditions)
 -(id)objectWithKey:(NSString *)key
 {
     id obj = [self objectForKey:key];
@@ -23,6 +22,26 @@
 }
 @end
 
+@implementation NSMutableDictionary (QUAdditions)
+- (void)setNeedStr:(NSString *)anObject forKey:(id)aKey
+{
+    if (anObject.length > 0)
+        [self setObject:anObject forKey:aKey];
+    else
+        [self setObject:@"" forKey:aKey];
+}
+
+- (void)setValidStr:(NSString *)anObject forKey:(id)aKey
+{
+    if (anObject.length > 0)
+        [self setObject:anObject forKey:aKey];
+}
+
+- (void)setInt:(int)anObject forKey:(id)aKey
+{
+    [self setObject:StringWithInt(anObject) forKey:aKey];
+}
+@end
 
 
 #pragma mark -

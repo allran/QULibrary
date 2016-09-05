@@ -7,10 +7,13 @@
 //
 
 #import "QUTextField.h"
-
+#import <IQKeyboardManager/IQUIView+IQKeyboardToolbar.h>
 
 @interface QUTextField ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) UIPickerView *pickerView;
+
+@property (nonatomic, strong) NSDate*               selectDate;
+@property (nonatomic, strong) NSString*             selectText;
 @end
 
 @implementation QUTextField
@@ -103,12 +106,12 @@
 
 -(void)loadSubPickerView
 {
-    
-    if (_pickerInput == YES) {
+    if ((_dataArr.count > 0 || _date != nil) && _pickerInput == YES) {
         self.delegate = self;
         [self setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
         [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
         
+        [self addCancelDoneOnKeyboardWithTarget:self cancelAction:@selector(leftMethod:) doneAction:@selector(rightMethod:)];
         
         if (_dataArr.count > 0) {
             if (_pickerView == nil) {
@@ -123,11 +126,12 @@
             if (_pickerShowFirstRow == YES && self.text.length==0)
                 [self loadDataWithSelectRow:0 inComponent:0 animated:NO];
             
-        } else if (_date != nil) {
+            return;
+        }  else if (_date != nil) {
             if (_datePickerView == nil) {
                 UIDatePicker *picker = [[UIDatePicker alloc] init];
                 picker.datePickerMode = UIDatePickerModeDateAndTime;
-                picker.date = [NSDate date];
+                picker.date = _date;
                 [picker setAutoresizingMask:(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight)];
                 [picker addTarget:self action:@selector(dateFieldChooseDate:) forControlEvents:UIControlEventValueChanged];
                 self.datePickerView = picker;
@@ -139,8 +143,34 @@
     } else {
         self.pickerView = nil;
         self.datePickerView = nil;
+        self.selectText = nil;
+        self.selectDate = nil;
         self.inputView = nil;
+        self.text = nil;
     }
+}
+
+-(void)leftMethod:(id)sender
+{
+    if (self.callBack && self.pickerView!=nil)
+        self.callBack(nil);
+    else if (self.callBackDate && self.datePickerView!=nil)
+        self.callBackDate(nil, nil);
+    [self resignFirstResponder];
+}
+
+-(void)rightMethod:(id)sender
+{
+    if (self.callBack && self.pickerView!=nil) {
+        self.text = _selectText;
+        self.callBack(_selectText);
+    }
+    else if (self.callBackDate && self.datePickerView!=nil) {
+        self.text = _selectText;
+        self.date = _selectDate;
+        self.callBackDate(_selectDate, _selectText);
+    }
+    [self resignFirstResponder];
 }
 
 
@@ -191,10 +221,10 @@
 {
     if (_dataArr.count >= row+1) {
         NSString *name = [_dataArr objectAtIndex:row];
-        self.text = name;
+        self.selectText = name;
         
-        if (self.callBack)
-            self.callBack(name);
+//        if (self.callBack)
+//            self.callBack(name);
     }
 }
 
@@ -224,10 +254,13 @@
         formatter.timeZone = self.datePickerView.timeZone;
     
     NSString *dateString = [formatter stringFromDate:date];
+    self.selectText = dateString;
+    self.selectDate = date;
+    
     self.text = dateString;
     
-    if (self.callBackDate)
-        self.callBackDate(date, dateString);
+//    if (self.callBackDate)
+//        self.callBackDate(date, dateString);
 }
 
 -(void)updateValue
