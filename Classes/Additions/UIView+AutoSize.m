@@ -10,6 +10,12 @@
 
 @implementation UIView (UIView_AutoSize)
 
++ (NSString *)quReuseIdentifier
+{
+    return NSStringFromClass(self);
+}
+
+
 #pragma mark -
 #pragma mark - UIView-->New
 - (UIView *)newUIView {
@@ -157,6 +163,71 @@
     return btn;
 }
 
+
+- (UIButton *)newUIButtonWithTitle:(NSString *)title {
+    UIButton *btn = [self newUIButton];
+    if (title != nil)
+        [btn setTitle:title forState:UIControlStateNormal];
+    return btn;
+}
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor{
+    UIButton *btn = [self newUIButtonWithTitle:title];
+    if (titleColor != nil)
+        [btn setTitleColor:titleColor forState:UIControlStateNormal];
+    return btn;
+}
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font{
+    UIButton *btn = [self newUIButtonWithTitle:title titleColor:titleColor];
+    if (font != nil)
+        btn.titleLabel.font = font;
+    return btn;
+}
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font bgImgNormal:(UIImage *)bgImageNameNormal{
+    UIButton *btn = [self newUIButtonWithTitle:title titleColor:titleColor titleFont:font];
+    if (bgImageNameNormal != nil)
+        [btn setBackgroundImage:bgImageNameNormal forState:UIControlStateNormal];
+    return btn;
+}
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font bgImgNormal:(UIImage *)bgImageNameNormal bgImgHighlighted:(UIImage *)bgImageNameHighlighted {
+    UIButton *btn = [self newUIButtonWithTitle:title titleColor:titleColor titleFont:font bgImgNormal:bgImageNameNormal];
+    if (bgImageNameHighlighted != nil)
+        [btn setBackgroundImage:bgImageNameHighlighted forState:UIControlStateHighlighted];
+    return btn;
+}
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font highlightedTitleColor:(UIColor *)highlightedTitleColor{
+    UIButton *btn = [self newUIButtonWithTitle:title titleColor:titleColor titleFont:font];
+    if (highlightedTitleColor!=nil)
+        [btn setTitleColor:highlightedTitleColor forState:UIControlStateHighlighted];
+    return btn;
+}
+- (UIButton *)newUIButtonWithImgNormal:(UIImage *)imageNameNormal {
+    UIButton *btn = [self newUIButton];
+    if (imageNameNormal != nil)
+        [btn setImage:imageNameNormal forState:UIControlStateNormal];
+    return btn;
+}
+- (UIButton *)newUIButtonWithBgImgNormal:(UIImage *)bgImageNameNormal{
+    UIButton *btn = [self newUIButton];
+    if (bgImageNameNormal != nil)
+        [btn setBackgroundImage:bgImageNameNormal forState:UIControlStateNormal];
+    return btn;
+}
+- (UIButton *)newUIButtonWithBgImgNormal:(UIImage *)bgImageNameNormal bgImgHighlighted:(UIImage *)bgImageNameHighlighted {
+    UIButton *btn = [self newUIButtonWithBgImgNormal:bgImageNameNormal];
+    if (bgImageNameHighlighted != nil)
+        [btn setBackgroundImage:bgImageNameHighlighted forState:UIControlStateHighlighted];
+    return btn;
+}
+
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font titleEdgeInsets:(UIEdgeInsets)titleEdge imgNormal:(UIImage *)imageNameNormal imageEdgeInsets:(UIEdgeInsets)imgeEdge
+{
+    UIButton *btn = [self newUIButtonWithTitle:title titleColor:titleColor titleFont:font];
+    [btn setImage:imageNameNormal forState:UIControlStateNormal];
+    [btn setTitleColor:titleColor forState:UIControlStateNormal];
+    [btn setImageEdgeInsets:imgeEdge];
+    [btn setTitleEdgeInsets:titleEdge];
+    return btn;
+}
 
 
 - (UITextField *)newUITextField {

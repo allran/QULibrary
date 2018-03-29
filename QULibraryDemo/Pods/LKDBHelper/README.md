@@ -1,3 +1,4 @@
+
 LKDBHelper
 ====================================
 this is sqlite ORM (an automatic database operation) <br>
@@ -5,16 +6,16 @@ thread-safe and not afraid of recursive deadlock
 
 QQ群号 113767274  有什么问题或者改进的地方大家一起讨论
 
-推荐个  json 和 model  互转非常好用的工具类 https://github.com/dcty/YYJSON 作者是个大神级的人物
-支持 NSData 直接转换成 model array
+简书：不定时更新  [http://www.jianshu.com/users/376b950a20ec](http://www.jianshu.com/users/376b950a20ec/latest_articles)
 
-#Big Upgrade 2.0
+# Big Upgrade 2.0
 
 Supported  __NSArray__,__NSDictionary__, __ModelClass__, __NSNumber__, __NSString__, __NSDate__, __NSData__, __UIColor__, __UIImage__, __CGRect__, __CGPoint__, __CGSize__, __NSRange__, __int__,__char__,__float__, __double__, __long__.. attribute to insert and select automation.
 
 全面支持 __NSArray__,__NSDictionary__, __ModelClass__, __NSNumber__, __NSString__, __NSDate__, __NSData__, __UIColor__, __UIImage__, __CGRect__, __CGPoint__, __CGSize__, __NSRange__, __int__,__char__,__float__, __double__, __long__.. 等属性的自动化操作(插入和查询)
 
 ------------------------------------
+
 Requirements
 ====================================
 
@@ -22,26 +23,26 @@ Requirements
 * ARC only
 * FMDB(https://github.com/ccgus/fmdb)
 
-##Adding to your project
+## Adding to your project
 
 If you are using CocoaPods, then, just add this line to your PodFile<br>
 
 ```objective-c
-pod 'LKDBHelper', :head
+pod 'LKDBHelper'
 ```
 
 If you are using Encryption, Order can not be wrong<br>
 
 ```objective-c
-pod 'FMDB/SQLCipher',:head
-pod 'LKDBHelper',:head
+pod 'FMDB/SQLCipher'
+pod 'LKDBHelper'
 ```
 
 @property(strong,nonatomic)NSString* encryptionKey;
 
-##Basic usage
+## Basic usage
 
-1 . Create a new Objective-C class for your data model
+1. Create a new Objective-C class for your data model
 
 ```objective-c
 @interface LKTest : NSObject
@@ -56,7 +57,7 @@ pod 'LKDBHelper',:head
 @property char like;
 ...
 ```
-2 . in the *.m file, overwirte getTableName function  (option)
+2. in the *.m file, overwirte getTableName function  (option)
 
 ```objective-c
 +(NSString *)getTableName
@@ -64,7 +65,7 @@ pod 'LKDBHelper',:head
     return @"LKTestTable";
 }
 ```
-3 . in the *.m file, overwirte callback function (option)
+3. in the *.m file, overwirte callback function (option)
 
 ```objective-c
 @interface NSObject(LKDBHelper_Delegate)
@@ -87,7 +88,7 @@ pod 'LKDBHelper',:head
 @end
 
 ```
-4 . Initialize your model with data and insert to database  
+4. Initialize your model with data and insert to database  
 
 ```objective-c
     LKTestForeign* foreign = [[LKTestForeign alloc]init];
@@ -106,13 +107,13 @@ pod 'LKDBHelper',:head
     test.blah = @[@"0",@[@1],@{@"2":@2},foreign];
     test.hoho = @{@"array":test.blah,@"foreign":foreign,@"normal":@123456,@"date":[NSDate date]};
     
-    //异步 插入第一条 数据   Insert the first
+    //同步 插入第一条 数据   Insert the first
     [test saveToDB];
     //or
     //[globalHelper insertToDB:test];
     
 ```
-5 . select 、 delete 、 update 、 isExists 、 rowCount ...
+5. select 、 delete 、 update 、 isExists 、 rowCount ...
 
 ```objective-c
     select:
@@ -141,7 +142,7 @@ pod 'LKDBHelper',:head
         
      
 ```
-6 . Description of parameters "where"
+6. Description of parameters "where"
 
 ```objective-c
  For example: 
@@ -160,7 +161,7 @@ pod 'LKDBHelper',:head
         For example: @"date >= '2013-04-01 00:00:00'"
 ```
 
-##table mapping
+## table mapping
 
 overwirte getTableMapping Function (option)
 
@@ -177,7 +178,7 @@ overwirte getTableMapping Function (option)
 }
 ```
 
-##table update (option)
+## table update (option)
 
 ```objective-c
 +(void)dbDidAlterTable:(LKDBHelper *)helper tableName:(NSString *)tableName addColumns:(NSArray *)columns
@@ -213,7 +214,7 @@ overwirte getTableMapping Function (option)
 }
 ```
 
-##demo screenshot
+## demo screenshot
 ![demo screenshot](https://github.com/li6185377/LKDBHelper-SQLite-ORM/raw/master/screenshot/Snip20130620_8.png)
 <br>table test data<br>
 ![](https://github.com/li6185377/LKDBHelper-SQLite-ORM/raw/master/screenshot/Snip20130620_6.png)
@@ -221,6 +222,10 @@ overwirte getTableMapping Function (option)
 ![](https://github.com/li6185377/LKDBHelper-SQLite-ORM/raw/master/screenshot/Snip20130620_7.png)
 
 ----------
+# Use in swift
+
+Remember to override the class function `getTableName` for model.
+
 Change-log
 ==========
 
@@ -248,18 +253,21 @@ Change-log
 
 
 -------
+
 License
 =======
 
 This code is distributed under the terms and conditions of the MIT license. 
 
 -------
+
 Contribution guidelines
 =======
 
 * if you are fixing a bug you discovered, please add also a unit test so I know how exactly to reproduce the bug before merging
 
 -------
+
 Contributors
 =======
 

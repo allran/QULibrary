@@ -1,10 +1,14 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
+
+target 'QULibraryDemo' do
+
 pod 'QULibrary', :path => '/Users/allran/Desktop/apple/APP/Allran/QULibrary'
 
 pod 'AFNetworking'
 pod 'SVProgressHUD'
 pod 'Masonry'
 pod 'IQKeyboardManager'
-pod 'LKDBHelper',:head
+pod 'LKDBHelper'
 pod 'MJExtension'
 pod 'MJRefresh'
+end

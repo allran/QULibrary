@@ -23,9 +23,15 @@
         self.scrollView.backgroundColor = [UIColor clearColor];
         self.scrollView.translatesAutoresizingMaskIntoConstraints  = NO;
         
-        [self.scrollView makeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+            self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+        
+        [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
-            make.width.equalTo(self.view.width);
+            make.width.equalTo(self.view.mas_width);
         }];
         
         UIView *contentView = [self.scrollView newUIView];
@@ -33,7 +39,7 @@
         contentView.backgroundColor = [UIColor clearColor];
         contentView.translatesAutoresizingMaskIntoConstraints = NO;
         self.contentView = contentView;
-        [contentView makeConstraints:^(MASConstraintMaker *make) {
+        [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(_scrollView);
             make.width.equalTo(_scrollView);
             //make.height.equalTo(_scrollView);

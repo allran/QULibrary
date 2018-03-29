@@ -27,13 +27,15 @@ const static int kFailNumber = 500;  //定义的失败返回值
 
 #pragma mark - NSDictionary
 @interface NSDictionary (QUAdditions)
--(id)objectWithKey:(NSString *)key; //返回有效值
+-(id)objectWithKey:(id)aKey; //返回有效值
+-(NSString *)objectStrWithKey:(id)key;  //返回key值的字符串
 @end
 
 @interface NSMutableDictionary (QUAdditions)
 - (void)setNeedStr:(NSString *)anObject forKey:(id)aKey;  //设置必须有的值
 - (void)setValidStr:(NSString *)anObject forKey:(id)aKey;  //当值不为空时，设置该值
 - (void)setInt:(int)anObject forKey:(id)aKey;
+- (void)setBool:(BOOL)anObject forKey:(id)aKey;
 @end
 
 
@@ -69,6 +71,13 @@ const static int kFailNumber = 500;  //定义的失败返回值
  *  @param arr object的arr
  */
 +(void)arrInsertToDB:(NSArray *)arr;
+
+/**
+ *  把该对象object拷贝为另一个对象
+ *
+ *  @param obj 当前需要拷贝的对象数据
+ */
++(instancetype)copyNewWithObj:(id)obj;
 
 - (NSString *)classString;
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SVProgressHUD.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "QUClient.h"
 #import "UIView+AutoSize.h"
 #import "UIViewController+Connection.h"

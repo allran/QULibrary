@@ -77,6 +77,9 @@
 
 - (void)addConnection:(NSURLSessionDataTask *)operation group:(NSString *)key
 {
+    if (key==nil || operation==nil)
+        return;
+    
     NSMutableArray *arr = [self.conDic objectForKey:key];
     if (arr == nil)
         arr = [[NSMutableArray alloc] init];
@@ -90,6 +93,9 @@
 
 - (void)removeConnection:(NSURLSessionDataTask *)operation group:(NSString *)key
 {
+    if (key==nil || operation==nil)
+        return;
+    
     NSMutableArray *arr = [self.conDic objectForKey:key];
     if ([arr containsObject:operation]) {
         [arr removeObject:operation];
@@ -99,6 +105,9 @@
 
 - (void)removeConnections:(NSString *)key
 {
+    if (key == nil)
+        return;
+    
     NSMutableArray *arr = [self.conDic objectForKey:key];
     if (arr != nil) {
         for (NSURLSessionDataTask *operation in arr)

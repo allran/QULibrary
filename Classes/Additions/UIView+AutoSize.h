@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-//define this constant if you want to use Masonry without the 'mas_' prefix
-#define MAS_SHORTHAND
-//define this constant if you want to enable auto-boxing for default syntax
-#define MAS_SHORTHAND_GLOBALS
-#import "Masonry.h"
+////define this constant if you want to use Masonry without the 'mas_' prefix
+//#define MAS_SHORTHAND
+////define this constant if you want to enable auto-boxing for default syntax
+//#define MAS_SHORTHAND_GLOBALS
+#import <Masonry/Masonry.h>
 
 const static float OnePixNumber = 1;
 const static float TenPixNumber = 10;
 
 
 @interface UIView (UIView_AutoSize)
++ (NSString *)quReuseIdentifier;
+
 - (UIView *)newUIView;
 - (UIView *)newUIViewWithBgColor:(UIColor *)bgColor;
 - (UIView *)newDefaultLineView;  //默认虚线
@@ -31,6 +33,7 @@ const static float TenPixNumber = 10;
 - (UIImageView *)newUIImageView;
 - (UIImageView *)newUIImageViewWithImg:(UIImage *)img;
 
+
 - (UIButton *)newUIButton;
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel;
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel title:(NSString *)title;
@@ -43,6 +46,18 @@ const static float TenPixNumber = 10;
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel imgNormal:(UIImage *)imageNameNormal;
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel bgImgNormal:(UIImage *)bgImageNameNormal;
 - (UIButton *)newUIButtonWithTarget:(id)target mehotd:(SEL)sel bgImgNormal:(UIImage *)bgImageNameNormal bgImgHighlighted:(UIImage *)bgImageNameHighlighted;
+
+- (UIButton *)newUIButtonWithTitle:(NSString *)title ;
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor;
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font;
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font bgImgNormal:(UIImage *)bgImageNameNormal;
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font bgImgNormal:(UIImage *)bgImageNameNormal bgImgHighlighted:(UIImage *)bgImageNameHighlighted ;
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font highlightedTitleColor:(UIColor *)highlightedTitleColor;
+- (UIButton *)newUIButtonWithImgNormal:(UIImage *)imageNameNormal ;
+- (UIButton *)newUIButtonWithBgImgNormal:(UIImage *)bgImageNameNormal;
+- (UIButton *)newUIButtonWithBgImgNormal:(UIImage *)bgImageNameNormal bgImgHighlighted:(UIImage *)bgImageNameHighlighted;
+- (UIButton *)newUIButtonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor titleFont:(UIFont *)font titleEdgeInsets:(UIEdgeInsets)titleEdge imgNormal:(UIImage *)imageNameNormal imageEdgeInsets:(UIEdgeInsets)imgeEdge;
+
 
 - (UITextField *)newUITextField;
 - (UITextField *)newUITextFieldWithPlaceholder:(NSString *)placeholder;

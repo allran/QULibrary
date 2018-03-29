@@ -56,9 +56,15 @@
         self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         self.tableView.tableFooterView = [[UIView alloc] init];
         
+        if (@available(iOS 11.0, *)) {
+            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+        
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
-            make.height.equalTo(self.view.height);
+            make.height.equalTo(self.view.mas_height);
         }];
     }
 }

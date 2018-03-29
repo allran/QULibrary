@@ -12,13 +12,27 @@
 #pragma mark -
 #pragma mark NSDictionary
 @implementation NSDictionary (QUAdditions)
--(id)objectWithKey:(NSString *)key
+
+-(id)objectWithKey:(id)aKey
 {
-    id obj = [self objectForKey:key];
+    id obj = [self objectForKey:aKey];
     if ([obj isEqual:[NSNull null]]) {
         obj = nil;
     }
     return obj;
+}
+
+-(NSString *)objectStrWithKey:(id)key
+{
+    id obj = [self objectWithKey:key];
+    if ([obj isEqual:[NSString class]]) {
+        return obj;
+    } else if ([obj isKindOfClass:[NSNumber class]]) {
+        return [obj stringValue];
+    } else {
+        return [self bv_jsonStringWithPrettyPrint:NO];
+    }
+    return nil;
 }
 @end
 
@@ -40,6 +54,11 @@
 - (void)setInt:(int)anObject forKey:(id)aKey
 {
     [self setObject:StringWithInt(anObject) forKey:aKey];
+}
+
+- (void)setBool:(BOOL)anObject forKey:(id)aKey
+{
+    [self setObject:StringWithBool(anObject) forKey:aKey];
 }
 @end
 
@@ -112,6 +131,19 @@
     //        }
     //        [db commit];
     //    }];
+}
+
++(instancetype)copyNewWithObj:(id)obj
+{
+    id value = nil;
+    
+    Class clazz = [self class];
+    if ([obj isKindOfClass:clazz]) {
+        NSMutableDictionary *keyValues = [obj mj_keyValues];
+        value = [self mj_objectWithKeyValues:keyValues];
+    }
+    
+    return value;
 }
 
 - (NSString *)classString

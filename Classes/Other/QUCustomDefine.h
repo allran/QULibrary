@@ -14,7 +14,7 @@
 
 #define IMG(_File_)                 [UIImage imageNamed:_File_]
 
-
+#define WeakSelf  __weak __typeof(&*self)weakSelf = self;
 
 //helper macro that creates CGRect, CGSize, CGPoint
 #define cgr(__X__, __Y__, __W__, __H__) CGRectMake(__X__, __Y__, __W__, __H__)  
@@ -81,7 +81,7 @@ otherButtonTitles:nil]; \
 #define SystemIsiOS6()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 6.0)
 #define SystemIsiOS7()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0)//判断是否为IOS7
 #define SystemIsiOS8()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 8.0)//判断是否为IOS8
-#define DEVICE_StatuBar_Height          (20.0)
+#define DEVICE_StatuBar_Height          ([[UIApplication sharedApplication] statusBarFrame].size.height)
 
 
 
